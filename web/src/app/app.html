@@ -1,0 +1,16 @@
+<main class="dev-home">
+  <h1>Orna Rentals</h1>
+  <p>Fejlesztői integrációs ellenőrzés</p>
+
+  @if (connection() === 'loading') {
+    <p role="status">Backend kapcsolat: ellenőrzés...</p>
+  } @else if (connection() === 'ok') {
+    <p class="success" role="status">Backend kapcsolat: rendben</p>
+  } @else {
+    <p class="error" role="alert">
+      Backend kapcsolat: hiba. {{ errorMessage() }}
+    </p>
+  }
+</main>
+
+<router-outlet />

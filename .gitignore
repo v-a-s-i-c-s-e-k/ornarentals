@@ -1,0 +1,10 @@
+**/.env
+**/.env.*
+!**/.env.example
+backend/vendor/
+web/node_modules/
+web/.angular/
+web/dist/
+**/coverage/
+.idea/
+Thumbs.db
