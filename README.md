@@ -19,6 +19,48 @@ Dísznövények bérlését kezelő webalkalmazás.
 
 ## Fejlesztői környezet előkészítése
 
+### Szükséges eszközök
+
+- Git
+- PHP 8.5 és Composer 2
+- Node.js 24 és npm 12
+- MariaDB 12.3
+
+### Projekt letöltése
+
+```powershell
+git clone https://github.com/v-a-s-i-c-s-e-k/ornarentals.git
+cd ornarentals
+```
+
+### MariaDB-adatbázis előkészítése
+
+Minden fejlesztő a saját gépén hozza létre az adatbázist és a fejlesztői felhasználót.
+
+A MariaDB konzoljában rendszergazdai jogosultsággal:
+
+```sql
+CREATE DATABASE IF NOT EXISTS orna_rentals_dev
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE USER IF NOT EXISTS 'orna_dev'@'localhost'
+IDENTIFIED BY 'SAJAT_EROS_JELSZO';
+
+CREATE USER IF NOT EXISTS 'orna_dev'@'127.0.0.1'
+IDENTIFIED BY 'SAJAT_EROS_JELSZO';
+
+GRANT ALL PRIVILEGES ON orna_rentals_dev.*
+TO 'orna_dev'@'localhost';
+
+GRANT ALL PRIVILEGES ON orna_rentals_dev.*
+TO 'orna_dev'@'127.0.0.1';
+```
+
+A `SAJAT_EROS_JELSZO` helyére saját jelszót kell megadni.
+
+A `backend/.env` fájl `DB_PASSWORD` értékét ennek megfelelően kell beállítani. A `.env` fájlt nem szabad feltölteni a GitHubra.
+
 ### Backend
 
 1. Lépj be a `backend` könyvtárba.
